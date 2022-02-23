@@ -24,22 +24,25 @@ let colors = ['#fae',"#1da", "#4ad", "#65a"]
 
 function setup() {
   createCanvas(innerWidth, innerHeight);
-  colorMode(HSB, height, height, height);
+  colorMode(HSB, width, width, width);
   background(colors[int(random(0,colors.length))]);
   // background(255);
 }
 
 function draw() {
+  // background(colors[int(random(0,colors.length))], 200, 100, 10);
   // curr_col = colors[random(0,colors.length)]
   // background(colors[rand]);
-  // background(255, 0, 0, 10)
+  // background(colors[int(random(0,colors.length))]);
   size = random(0, init_size)
   // y = random(0, height)
   let which = mouseX / size;
   if (which !== lastBar) {
     let x = which * size;
+    // map(mouseX, 0, width, 0, 255);
     fill(mouseX, width, width);
-    ellipse(x, y, size);
+    triangle(x, y, x+size, y, x+(size/2), y-size);
+    // ellipse(x, y, size);
     lastBar = which;
   }
 }
